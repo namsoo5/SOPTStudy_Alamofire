@@ -12,16 +12,33 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     //Cell에 들어갈 데이터저장배열
-    var dataSet = [Memo]()
+    typealias MemoData = MemoResult.MemoData
+    
+    var dataSet = [MemoData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         
+        MemoListService.shared.getMemoList(){
+            resultData in
+            
+            switch resultData{
+                
+            case .success(let data):
+                self.dataSet = data
+                self.tableView.reloadData()
+            case .failure(let err):
+                print(err.localizedDescription)
+            default:
+                return
+            }
+            
+        }
+        
     }
-
+    
 }
-
 
 // MARK: - 테이블뷰 설정
 extension ViewController: UITableViewDataSource{
