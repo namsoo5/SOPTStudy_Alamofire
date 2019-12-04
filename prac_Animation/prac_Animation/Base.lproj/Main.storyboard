@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MX9-tv-jB2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KXa-Qg-gbG">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
@@ -166,10 +166,49 @@
             </objects>
             <point key="canvasLocation" x="379.71014492753625" y="-4.0178571428571423"/>
         </scene>
+        <!--New View Controller-->
+        <scene sceneID="acG-yx-NtY">
+            <objects>
+                <viewController id="KXa-Qg-gbG" customClass="NewViewController" customModule="prac_Animation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ybm-83-AXd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ug3-P2-yXL">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                                <color key="backgroundColor" red="0.3803921569" green="0.3803921569" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Koh-7a-OCE"/>
+                                    <constraint firstAttribute="height" constant="200" id="U8P-Gf-B1c"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" red="0.92941176469999998" green="0.4039215686" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Z2m-dO-4n6" kind="presentation" id="w4k-wG-c0h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ug3-P2-yXL" firstAttribute="centerY" secondItem="ybm-83-AXd" secondAttribute="centerY" id="BwX-IQ-75F"/>
+                            <constraint firstItem="Ug3-P2-yXL" firstAttribute="centerX" secondItem="ybm-83-AXd" secondAttribute="centerX" id="mGe-2y-GAv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="66B-uI-AOX"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cHn-5x-eUH"/>
+                    <connections>
+                        <outlet property="button" destination="Ug3-P2-yXL" id="Go0-Gc-TIR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ku4-U5-2Pw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1038" y="646"/>
+        </scene>
         <!--Third View Controller-->
         <scene sceneID="hqt-ID-onp">
             <objects>
-                <viewController storyboardIdentifier="nextVC" id="Z2m-dO-4n6" customClass="ThirdViewController" customModule="prac_Animation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="nextVC" modalPresentationStyle="overFullScreen" id="Z2m-dO-4n6" customClass="ThirdViewController" customModule="prac_Animation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="65o-eG-2ka">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
