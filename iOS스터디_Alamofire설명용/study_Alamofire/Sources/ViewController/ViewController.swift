@@ -15,11 +15,38 @@ class ViewController: UIViewController {
     typealias MemoData = MemoResult.MemoData
     
     var dataSet = [MemoData]()
+    private let refresh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         
+        
+        
+        self.tableView.refreshControl = refresh
+        refresh.addTarget(self, action: #selector(tableViewPullRefresh), for: .valueChanged)
+        
+//        MemoListService.shared.getMemoList(){
+//            resultData in
+//
+//            switch resultData{
+//
+//            case .success(let data):
+//                self.dataSet = data
+//                self.tableView.reloadData()
+//            case .failure(let err):
+//                print(err.localizedDescription)
+//            default:
+//                return
+//            }
+//
+//        }
+        
+    }
+    
+    
+    @objc func tableViewPullRefresh(){
+    
         MemoListService.shared.getMemoList(){
             resultData in
             
@@ -28,6 +55,7 @@ class ViewController: UIViewController {
             case .success(let data):
                 self.dataSet = data
                 self.tableView.reloadData()
+                self.refresh.endRefreshing()
             case .failure(let err):
                 print(err.localizedDescription)
             default:
